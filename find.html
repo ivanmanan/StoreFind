@@ -1,0 +1,70 @@
+<head>
+  <title>StormFind</title>
+</head>
+
+<body>
+  <h1>StormFind Mall</h1>
+
+  <a href="https://www.google.com" target="_blank">Help</a>
+  <p>Your Online Shopping Mall!</p>
+  {{>itemsList}}
+</body>
+
+<!-- Need to create another template for storing Store data -->
+
+<template name="storesList">
+  <ul>
+    <p>
+      <a href="http://www.target.com/s?searchTerm={{name}}"
+	 target="_blank">Target</a>
+    </p>
+    <p>
+      <a href="http://www.walmart.com/search/search-ng.do?search_query={{name}}"
+	 target="_blank">Walmart</a>
+    </p>
+    <p>
+      <a href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={{name}}">Amazon</a>
+    </p>
+	
+    
+    <!-- references should be image logos -->
+  </ul>
+</template>
+
+
+<template name="itemsList">
+  {{>addItem}}
+
+  <ol>
+    {{#each item}}
+    <li class>
+      <p>Searching for: {{name}}</p>
+    </li>
+    <button class="remove">Remove Item</button>
+    {{>storesList}}
+    {{/each}}
+  </ol>
+
+
+  {{>history}}
+</template>
+
+
+
+
+
+<template name="addItem">
+  <form>
+    <input type="text" name="itemName">
+    <input type="submit" value="Search Item">
+  </form>
+</template>
+
+
+
+
+
+<!-- This is a histry of the list of items -->
+<template name="history">
+
+</template>
